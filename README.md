@@ -16,23 +16,23 @@ This project uses a MEVN stack - mySQL, Express.js, Vue.js and NodeJS
 
 * First install all dependencies
 
-`$ npm i`
+```$ npm i```
 
 and run using
 
-`$ npm run start`
+```$ npm run start```
 
 * In the root directory there is another directory 'physicspaperanalysis' this is the directory containing the frontend vue.js framework. Enter it, install dependencies and run,
 
-`$ cd physicspaperanalysis
+```$ cd physicspaperanalysis
 $ npm i
-$ npm run serve`
+$ npm run serve```
 
 However the db needs to be created. This shouldn't be a problem using information from MEVN-Physics-Ppaers-Analysis/model/Task.js
 
-`mysql> describe physics_tbls;`
+```mysql> describe physics_tbls;```
 
-`+-----------------+--------------+------+-----+---------+----------------+
+```+-----------------+--------------+------+-----+---------+----------------+
 | Field           | Type         | Null | Key | Default | Extra          |
 +-----------------+--------------+------+-----+---------+----------------+
 | id              | int(11)      | NO   | PRI | NULL    | auto_increment |
@@ -47,4 +47,4 @@ However the db needs to be created. This shouldn't be a problem using informatio
 | Question_number | int(2)       | YES  |     | NULL    |                |
 | Part            | varchar(5)   | YES  |     | NULL    |                |
 | Sub_part        | varchar(5)   | YES  |     | NULL    |                |
-+-----------------+--------------+------+-----+---------+----------------+`
++-----------------+--------------+------+-----+---------+----------------+```
