@@ -1,5 +1,7 @@
 # Dashboard for Leaving Cert Physics Exam Papers Analysis
 
+The vue.js code is in the physicspspersanalysis directory.
+
 This project uses a MEVN stack - mySQL, Express.js, Vue.js and NodeJS
 
 * This project is the first step to build software that will allow for analysis of the Leaving Certificate examination papers.

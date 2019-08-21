@@ -4,7 +4,40 @@ const Task = require("../model/Task")
 
 //Get task
 router.get("/tasks", (req, res) => {
-  Task.findAll()
+  Task.findAll(
+      // {
+      //   where: {
+      //     Topic: 'Thermal Physics'
+      //   }
+      // }
+    )
+    .then(tasks => {
+      res.json(tasks)
+    })
+    .catch(err => {
+      res.send("error: " + err)
+    })
+})
+
+//Get Query
+router.get("/tasks/:level?/:topic?/:subtopic?", (req, res) => {
+  var query = {};
+  if (req.params.topic != " ") {
+    console.log("topic sent");
+    query.Topic = req.params.topic;
+  }
+  if (req.params.subtopic != " ") {
+    console.log("sub topic sent");
+    query.Sub_topic = req.params.subtopic;
+  }
+  if (req.params.level != " ") {
+    console.log("level sent");
+    query.Level = req.params.level;
+  }
+  console.log(query);
+  Task.findAll({
+      where: query
+    })
     .then(tasks => {
       res.json(tasks)
     })
@@ -14,7 +47,7 @@ router.get("/tasks", (req, res) => {
 })
 
 // //Get last task
-// router.get("/lastTasks", (req, res) => {
+// router.get("/lasttask", (req, res) => {
 //   Task.findAll()
 //     .then(tasks => {
 //       res.json(tasks)

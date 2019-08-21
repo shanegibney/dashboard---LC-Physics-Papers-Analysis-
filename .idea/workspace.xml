@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="387a040d-d492-4b9f-ac77-2a35fe11d152" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/$PRODUCT_WORKSPACE_FILE$" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/physicspaperanalysis/node_modules/.cache/babel-loader/80e8ce146b6c574f39a352dbadb01b4a.json" beforeDir="false" afterPath="$PROJECT_DIR$/physicspaperanalysis/node_modules/.cache/babel-loader/80e8ce146b6c574f39a352dbadb01b4a.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/physicspaperanalysis/node_modules/.cache/babel-loader/9cd86456b5d10e1d6067c853b1a808df.json" beforeDir="false" afterPath="$PROJECT_DIR$/physicspaperanalysis/node_modules/.cache/babel-loader/9cd86456b5d10e1d6067c853b1a808df.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/physicspaperanalysis/node_modules/.cache/vue-loader/440876c5ac12b353f754023052f17872.json" beforeDir="false" afterPath="$PROJECT_DIR$/physicspaperanalysis/node_modules/.cache/vue-loader/440876c5ac12b353f754023052f17872.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/physicspaperanalysis/node_modules/.cache/vue-loader/769bb81c93920dc7e09691f8c415cc4b.json" beforeDir="false" afterPath="$PROJECT_DIR$/physicspaperanalysis/node_modules/.cache/vue-loader/769bb81c93920dc7e09691f8c415cc4b.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/physicspaperanalysis/node_modules/.cache/vue-loader/7a75eb174e289b406a922cfbfdbbca1d.json" beforeDir="false" afterPath="$PROJECT_DIR$/physicspaperanalysis/node_modules/.cache/vue-loader/7a75eb174e289b406a922cfbfdbbca1d.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/physicspaperanalysis/node_modules/.cache/vue-loader/afaa2458def0560cf4ebc9f58c0de709.json" beforeDir="false" afterPath="$PROJECT_DIR$/physicspaperanalysis/node_modules/.cache/vue-loader/afaa2458def0560cf4ebc9f58c0de709.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/physicspaperanalysis/node_modules/.cache/vue-loader/fa10947f88fe4e53132b93a7926249e0.json" beforeDir="false" afterPath="$PROJECT_DIR$/physicspaperanalysis/node_modules/.cache/vue-loader/fa10947f88fe4e53132b93a7926249e0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/physicspaperanalysis/src/components/List.vue" beforeDir="false" afterPath="$PROJECT_DIR$/physicspaperanalysis/src/components/List.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes/tasks.js" beforeDir="false" afterPath="$PROJECT_DIR$/routes/tasks.js" afterDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1Pj4IlYG2F9aeszIsMYhUup0ZeW" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="SDKs" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="387a040d-d492-4b9f-ac77-2a35fe11d152" name="Default Changelist" comment="" />
+      <created>1566374093574</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1566374093574</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+  </component>
+</project>
