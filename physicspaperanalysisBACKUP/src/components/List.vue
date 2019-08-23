@@ -134,7 +134,7 @@
               <div class="dropdown inputs">
                 <label for="subtopic"><strong>Sub-topic: </strong></label><br>
                 <select :disabled="subTopics.length == 0" v-model="Sub_topictag" class="form-control" name="subtopic" id="subtopic">
-                  <option v-for="subTopics in subTopics">{{subTopics}}</option>
+                  <option v-for="subTopic in subTopics">{{subTopic}}</option>
                 </select>
               </div>
             </div>
