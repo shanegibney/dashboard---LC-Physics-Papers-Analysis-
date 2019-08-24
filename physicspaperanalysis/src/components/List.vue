@@ -22,69 +22,82 @@
             <a class="nav-link" @click="toggleOptions()" v-if="!showOptions">Show Options Panel</a>
             <a class="nav-link" @click="toggleOptions()" v-if="showOptions">Remove Options Panel</a>
           </li>
-          <!-- <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-              Dropdown
-            </a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Something else here</a>
-            </div>
-          </li> -->
-          <!-- <li class="nav-item">
-            <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-          </li> -->
         </ul>
-        <!-- <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-        </form> -->
       </div>
     </nav>
 
-    <!-- <div class="row">
-      <div class="col-md-3">
-        <button @click="toggleDashboard()" type="button" v-if="!showDashboard" name="button" class="btn btn-primary btn-dashboard-show">Show Dashboard Panel</button>
-        <button @click="toggleDashboard()" type="button" v-if="showDashboard" name="button" class="btn btn-danger btn-dashboard-remove">Remove Dashboard Panel</button>
-      </div>
-    </div> -->
-
     <!-- Add options panel -->
-    <div class="row" v-if="showOptions">
-      <div class="col-md-12">
-        <form v-on:submit.prevent="addOptions" class="jumbotron">
+    <div class="row jumbotron" v-if="showOptions">
+      <form>
+        <div class="col-md-12">
           <div class="row">
-            <div class="col-md-2">
-              <button @click="addOptions()" type="submit" class="btn btn-success btn-block mt-4">Submit</button>
+            <div class="col-md-6">
+              <button @click="toggleExisting()" type="submit" class="btn btn-success mt-4 btn-newrelatedtopic">Add new topic and related sub-topic</button>
             </div>
-            <div class="col-md-3">
-              <label for="addnewtopicss"><strong>addnew Topic: </strong></label>
-              <input class="form-control" type="text" v-model="addnewtopic">
-              {{addnewtopic.length}}
-            </div>
-            <div class="col-md-3">
-              <label for="addnewsubtopic"><strong>New Related Sub Topic: </strong></label>
-              <!-- :disabled="subTopics.length == 0" -->
-              <input class="form-control" :disabled="addnewtopic.length == 0" type="text" v-model="addnewsubtopic" placeholder="Add related sub topic">
-            </div>
-            <div class="col-md-4">
-              addnewtopic: {{addnewtopic}}<br>
-              addnewsubtopic: {{addnewsubtopic}}<br>
-              addnewTopic: {{addnewTopic}}<br>
+            <div class="col-md-6">
+              <button @click="toggleExisting()" type="submit" class="btn btn-success mt-4 btn-existingtopic">Add sub-topic to existing topic</button>
             </div>
           </div>
-        </form>
-      </div>
-    </div>
+        </div>
+      </form>
 
+      <form v-on:submit.prevent="addOptions">
+        <div class="row jumbotron" v-if="existingtopic">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-success mt-4">Submit</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                <label for="addnewtopicss"><strong>Add new topic: </strong></label>
+                <input class="form-control" type="text" v-model="TopicExisting">
+              </div>
+              <div class="col-md-6">
+                <label for="addnewsubtopic"><strong>New related sub topic: </strong></label>
+                <input class="form-control" :disabled="TopicExisting.length == 0" type="text" v-model="Sub_topicExisting" placeholder="Add related sub topic">
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+
+      <form v-on:submit.prevent="addOptions">
+        <div class="row jumbotron" v-if="!existingtopic">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <button type="submit" class="btn btn-success mt-4">Submit</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-6 inputs">
+                <div class="dropdown">
+                  <label for="topicExistingg"><strong>Existing topic: </strong></label><br>
+                  <select v-model="TopicExisting" name="topicExistingg" id="topicExistingg" class="form-control">
+                    <option v-for="(topicExisting_obj, topicExisting) in subjects" :value="topicExisting">{{topicExisting}}</option>
+                  </select>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="dropdown inputs">
+                  <label for="subtopicExistingg"><strong>Add sub-topic to existing topic: </strong></label><br>
+                  <input type="text" name="subtopicExistingg" v-model="Sub_topicExisting">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
     <!-- End add options panel -->
 
     <!-- Dashboard start -->
     <div class="row" v-if="showDashboard">
       <div class="col-md-12">
-        <form v-on:submit.prevent="NewTask" class="jumbotron">
+        <form v-on:submit.prevent="addNewTask" class="jumbotron">
+          <!-- <form class="jumbotron"> -->
           <div class="row">
             <div class="col-md-2">
               <div class="dropdown inputs">
@@ -133,7 +146,7 @@
             <div class="col-md-3">
               <div class="dropdown inputs">
                 <label for="subtopic"><strong>Sub-topic: </strong></label><br>
-                <select :disabled="subTopics.length == 0" v-model="Sub_topictag" class="form-control" name="subtopic" id="subtopic">
+                <select v-model="Sub_topictag" class="form-control" name="subtopic" id="subtopic">
                   <option v-for="subTopic in subTopics">{{subTopic}}</option>
                 </select>
               </div>
@@ -182,13 +195,6 @@
       </div>
     </div>
     <!-- End dashboard -->
-
-    <!-- <div class="row">
-      <div class="col-md-3">
-        <button @click="toggleQuery()" type="button" v-if="!showQuery" name="button" class="btn btn-primary btn-query-show">Show Query Panel</button>
-        <button @click="toggleQuery()" type="button" v-if="showQuery" name="button" class="btn btn-danger btn-query-remove">Remove Query Panel</button>
-      </div>
-    </div> -->
 
     <!-- Begin query panel -->
     <div class="row" v-if="showQuery">
@@ -291,50 +297,6 @@
         </div>
       </div>
     </div>
-    <!-- <table class="table striped">
-          <thead class="thead-dark">
-            <tr>
-              <th>#</th>
-              <th>id</th>
-              <th>Level</th>
-              <th>Year</th>
-              <th>Q.no.</th>
-              <th>Part</th>
-              <th>Sub_part</th>
-              <th>Question</th>
-              <th>Answer</th>
-              <th>Topic</th>
-              <th>Sub topic</th>
-              <th>Q.type</th>
-              <th>Marks</th>
-              <th></th>
-              <th></th>
-            </tr>
-          </thead>
-          <tr v-for="(todo,index) in reversedTodos" v-bind:id="todo.id" v-bind:Level="todo.Level" v-bind:Year="todo.Year" v-bind:Question="todo.Question" v-bind:Answer="todo.Answer" v-bind:Topic="todo.Topic" v-bind:Sub_topic="todo.Sub_topic"
-            v-bind:Question_type="todo.Question_type" v-bind:arks="todo.Marks" v-bind:Question_number="todo.Question_number" v-bind:Part="todo.Part" v-bind:Sub_part="todo.Sub_part">
-            <td class="text-center">{{index+1}}</td>
-            <td class="text-center">{{todo.id}}</td>
-            <td class="text-left">{{todo.Level}}</td>
-            <td class="text-center">{{todo.Year}}</td>
-            <td class="text-center">{{todo.Question_number}}</td>
-            <td class="text-center">{{todo.Part}}</td>
-            <td class="text-center">{{todo.Sub_part}}</td>
-            <td class="text-left overflow-ellipsis">{{todo.Question}}</td>
-            <td class="text-left">{{todo.Answer}}</td>
-            <td class="text-left">{{todo.Topic}}</td>
-            <td class="text-left">{{todo.Sub_topic}}</td>
-            <td class="text-left">{{todo.Question_type}}</td>
-            <td class="text-center">{{todo.Marks}}</td>
-            <td class="text-center">-->
-    <!-- icon="icon name", also need to add icon to main.js rewritting the name in camel-case as given at  https://fontawesome.com/icons/trash-alt?style=solid -->
-    <!-- <font-awesome-icon icon="edit" v-on:click="editTask(todo.id, todo.Level, todo.Year, todo.Question, todo.Answer, todo.Topic, todo.Sub_topic,todo.Question_type, todo.Marks, todo.Question_number, todo.Part, todo.Sub_part)" />
-        </td>
-        <td class="text-center">
-          <font-awesome-icon icon="trash-alt" v-on:click="deleteTask(todo.id)" />
-        </td>
-        </tr>
-        </table> -->
   </div>
   <!-- End data display -->
 
@@ -357,8 +319,6 @@ export default {
       subTopics: [],
 
       selectLevels: ['Higher', 'Ordinary'],
-      selected: 'Higher',
-      selectedOption: '',
       opts: [{
         level: 'Higher'
       }, {
@@ -385,7 +345,6 @@ export default {
       addnewTopic: 'newTopic',
       addnewtopic: '',
       addnewsubtopic: '',
-      // disableSubTopicForm: false,
 
       showQuery: false,
       showDashboard: true,
@@ -401,37 +360,53 @@ export default {
       subTopicsQuery: '',
       questiontypeQuery: 'Theory',
 
-      // Yeartag: reversedTodos[0].year,
       Yeartag: 2019,
       Leveltag: 'Higher',
       Questiontag: '',
       Answertag: '',
-      // Answertag: this.todos[this.todos.length - 1].Answer,
       Topictag: '',
       Sub_topictag: '',
-      // Sub_topictag: this.subjects["Force", "Momentum", "Acceleration", "Centripetal acceleration", "Gravity", "Friction"],
-      // Sub_topictag: this.subjects["Mechanics"],
       Question_typetag: 'Theory',
       Markstag: 5,
       Question_numbertag: 2,
       Parttag: 'c',
       Sub_parttag: 'ii',
-      isEdit: false
+      isEdit: false,
+
+      existingtopic: true,
+      TopicExisting: '',
+      Sub_topicExisting: '',
+      subTopicsExisting: [],
+
+      check: false
     }
   },
   created() {
     this.getTasks()
+    // need to get and then generate topics and related subtopics object
+    // subjects: {
+    //   "Mechanics": ["Force", "Momentum", "Acceleration", "Centripetal acceleration", "Gravity", "Friction"],
+    //   "Thermal": ["Charle's Law", "Specific heat capacity", "Latent heat of vaporisation"],
+    //   "Nuclear": ["Half-life", "Decay rate", "Radioactivity"],
+    //   "Particle": ["Hadrons", "Baryons", "Leptons"]
+    // }
   },
   methods: {
+    toggleExisting() {
+      this.existingtopic = !this.existingtopic;
+    },
     addOptions() {
-      // add new topic and sub topic to the subjects object
-      // subjects: {
-      //   "Mechanics": ["Force", "Momentum", "Acceleration", "Centripetal acceleration", "Gravity", "Friction"],
-      //   "Thermal": ["Charle's Law", "Specific heat capacity", "Latent heat of vaporisation"],
-      //   "Nuclear": ["Half-life", "Decay rate", "Radioactivity"],
-      //   "Particle": ["Hadrons", "Baryons", "Leptons"]
-      // },
-      console.log("this.addnewtopic: " + this.addnewtopic + ", this.addnewsubtopic: " + this.addnewsubtopic);
+      // check if topic exists in subjects
+      this.check = this.subjects.hasOwnProperty(this.TopicExisting)
+      if (this.check) {
+        this.subjects[this.TopicExisting].push(this.Sub_topicExisting);
+      } else {
+        this.subjects[this.TopicExisting] = []; // must set this as an array
+        this.subjects[this.TopicExisting].push(this.Sub_topicExisting);
+      }
+      this.TopicExisting = '';
+      this.Sub_topicExisting = '';
+      console.log(JSON.stringify(this.subjects, null, 4))
     },
     toggleQuery() {
       this.showQuery = !this.showQuery;
@@ -442,17 +417,6 @@ export default {
     toggleDashboard() {
       this.showDashboard = !this.showDashboard;
     },
-    // lastTask() {
-    //   axios.get("/api/lasttask").then(
-    //     result => {
-    //       // this.todos = result.data
-    //       console.log(result.data);
-    //     },
-    //     error => {
-    //       console.error(error)
-    //     }
-    //   )
-    // },
     getTasks() {
       axios.get("/api/tasks").then(
         result => {
@@ -535,6 +499,7 @@ export default {
       this.isEdit = true
     },
     updateTask(id) {
+      console.log("updateTask()");
       // axios.put(`/api/task/${this.id}`, {
       axios.put('/api/task/' + id, {
           Level: this.Leveltag,
@@ -589,7 +554,7 @@ export default {
         // } else {
         console.log("watching this.Topictag.length > 0");
         this.subTopics = this.subjects[this.Topictag]
-        // console.log("this.Topictag = " + this.Topictag);
+        console.log("this.Topictag = " + this.Topictag);
         // }
       }
       // console.log("this.Topictag.length = " + this.Topictag.length);
@@ -608,10 +573,17 @@ export default {
         this.subTopicsQuery = this.subjects[this.TopicQuery]
       }
     },
-    addnewtopic: function() {
-      console.log("watch: change on addnewtopic: " + this.addnewtopic);
-      // this.disableSubTopicForm = true;
-    }
+    // addnewtopic: function() {
+    //   console.log("watch: change on addnewtopic: " + this.addnewtopic);
+    //   // this.disableSubTopicForm = true;
+    // }
+    // TopicExisting: function() {
+    //   console.log("TopicExisting: " + this.TopicExisting);
+    //   // this.Sub_TopicExisting = [];
+    //   // if (this.TopicExisting.length > 0) {
+    //   //   this.subTopicsExisting = this.subjects[this.TopicExisting]
+    //   // }
+    // }
   }
 }
 </script>
@@ -669,6 +641,16 @@ button {
   width: 150px;
 }
 
+.btn-existingtopic {
+  white-space: nowrap;
+  width: 350px;
+}
+
+.btn-newrelatedtopic {
+  white-space: nowrap;
+  width: 350px;
+}
+
 .btn-query-show {
   white-space: nowrap;
   width: 150px;
@@ -704,5 +686,9 @@ button {
 .optionsPanel {
   border-radius: 5px;
   border: 1px solid gray;
+}
+
+.jumbotron {
+  border: 1px solid black;
 }
 </style>
